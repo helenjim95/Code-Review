@@ -19,11 +19,13 @@ public class ExamManagementService {
 
     public Student getStudentByMatrNr(String matrNr) {
         // 2.1 : throw NoSuchElementException in case the student was not found
+        Student student;
         try {
-            return studentRepository.getStudentByMatrNr(matrNr);
+            student = studentRepository.getStudentByMatrNr(matrNr);
         } catch (Exception e) {
             throw new NoSuchElementException("The student was not found");
         }
+        return student;
     }
 
     public void registerStudent(Student student) {
@@ -40,11 +42,13 @@ public class ExamManagementService {
 
 
     public Exam getExamById(Long id) {
+        Exam exam;
         try {
-            return examRepository.getExamById(id);
+            exam = examRepository.getExamById(id);
         } catch (Exception e) {
             throw new NoSuchElementException("The exam was not found");
         }
+        return exam;
     }
 
     public void registerExam(Exam exam) {
