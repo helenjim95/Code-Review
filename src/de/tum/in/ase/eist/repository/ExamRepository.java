@@ -19,11 +19,6 @@ public class ExamRepository {
      * or null if this map contains no mapping for the key
      */
     public Exam getExamById(Long examID) {
-        try {
-            this.repo.get(examID);
-        } catch (Exception e) {
-            throw new NoSuchElementException();
-        }
         return this.repo.get(examID);
     }
 

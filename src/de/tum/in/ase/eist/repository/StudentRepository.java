@@ -19,11 +19,6 @@ public class StudentRepository {
      * or null if this map contains no mapping for the key
      */
     public Student getStudentByMatrNr(String matrNr) {
-        try {
-            this.repo.get(matrNr);
-        } catch (Exception e) {
-            throw new NoSuchElementException();
-        }
         return this.repo.get(matrNr);
 
     }
