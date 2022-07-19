@@ -17,7 +17,7 @@ public class ExamManagementService {
         this.studentRepository = studentRepository;
     }
 
-    public Student getStudentByMatrNr(String matrNr) {
+    public Student getStudentByMatrNr(String matrNr) throws NoSuchElementException {
         // 2.1 : throw NoSuchElementException in case the student was not found
         try {
             return studentRepository.getStudentByMatrNr(matrNr);
@@ -39,7 +39,7 @@ public class ExamManagementService {
     }
 
 
-    public Exam getExamById(Long id) {
+    public Exam getExamById(Long id) throws NoSuchElementException {
         try {
              return examRepository.getExamById(id);
         } catch (Exception e) {
