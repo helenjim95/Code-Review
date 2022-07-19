@@ -4,7 +4,8 @@ public class Student extends Person {
     private final String matrNr;
 
     public Student(final String name, final int age, final String email, final String matrNr, int semester) {
-        super(name, age, email, semester);
+        super(name, age, email);
+        this.semester = semester;
         this.matrNr = matrNr;
     }
 

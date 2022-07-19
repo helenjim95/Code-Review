@@ -7,10 +7,9 @@ public abstract class Person {
     private final String email;
     int semester;
 
-    public Person(final String name, final int age, final String email, int semester) {
+    public Person(final String name, final int age, final String email) {
         this.name = name;
         this.age = age;
         this.email = email;
-        this.semester = semester;
     }
 }
