@@ -21,7 +21,7 @@ public class ExamRepository {
     public Exam getExamById(Long examID) {
         try {
             return this.repo.get(examID);
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             throw new NoSuchElementException("The student was not found.");
         }
     }

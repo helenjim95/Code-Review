@@ -8,5 +8,5 @@ public class Professor extends Person {
         this.persNr = persNr;
     }
 
-    public String getpersNr() { return persNr;}
+    public String getPersNr() { return persNr;}
 }

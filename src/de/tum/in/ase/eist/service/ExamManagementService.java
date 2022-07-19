@@ -62,7 +62,7 @@ public class ExamManagementService {
         try {
             examRepository.removeExamById(id);
             System.out.println("Exam has been removed successfully");
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             throw new NoSuchElementException("The exam was not found");
         }
     }
