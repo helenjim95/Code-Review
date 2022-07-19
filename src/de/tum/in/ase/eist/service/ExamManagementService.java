@@ -5,6 +5,8 @@ import de.tum.in.ase.eist.entities.Student;
 import de.tum.in.ase.eist.repository.ExamRepository;
 import de.tum.in.ase.eist.repository.StudentRepository;
 
+import java.util.NoSuchElementException;
+
 public class ExamManagementService {
 
     private final ExamRepository examRepository;
@@ -16,9 +18,12 @@ public class ExamManagementService {
     }
 
     public Student getStudentByMatrNr(String matrNr) {
-
-        // TODO 2.1 : throw NoSuchElementException in case the student was not found
-
+        // 2.1 : throw NoSuchElementException in case the student was not found
+        try {
+            studentRepository.getStudentByMatrNr(matrNr);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("The student was not found");
+        }
         return studentRepository.getStudentByMatrNr(matrNr);
     }
 
@@ -36,22 +41,38 @@ public class ExamManagementService {
 
 
     public Exam getExamById(Long id) {
-        // TODO 2.2 : Implement me - don't forget to throw NoSuchElementException if exam cannot be found
-        throw new RuntimeException("Not yet implemented");
+        try {
+            examRepository.getExamById(id);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("The exam was not found");
+        }
+        return examRepository.getExamById(id);
     }
 
     public void registerExam(Exam exam) {
-        // TODO 2.2 : Implement me
-        throw new RuntimeException("Not yet implemented");
+        // 2.2 : Implement me
+        if (examIsNotNull(exam)) {
+            examRepository.registerExam(exam);
+            System.out.println("Exam has been registered successfully.");
+        }
     }
 
     public void removeExamById(Long id) {
-        // TODO 2.2 : Implement me
-        throw new RuntimeException("Not yet implemented");
+        // 2.2 : Implement me
+        try {
+            examRepository.removeExamById(id);
+            System.out.println("Exam has been removed successfully");
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("The exam was not found");
+        }
     }
 
     // Helper function
     boolean studentIsNotNull(Student student) {
         return student != null;
+    }
+
+    boolean examIsNotNull(Exam exam) {
+        return exam != null;
     }
 }

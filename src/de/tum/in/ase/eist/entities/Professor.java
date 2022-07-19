@@ -1,21 +1,10 @@
 package de.tum.in.ase.eist.entities;
 
-public class Professor {
+public class Professor extends Person {
+    private final String persNr;
 
-    private String persNr;
-    public static String name;
-    private static int age;
-    private int semester;
-    private String email;
-
-    // TODO 1.1 : - Bob is not good at Object Orientated Programming - fix it
-
-    // TODO 1.2 : Refactoring - Apply the template method design pattern on Student and Professor to prevent duplicated code
-
-    public Professor(String name, int age, String email, String persNr) {
+    public Professor(final String name, final int age, final String email, final String persNr, int semester) {
+        super(name, age, email, semester);
         this.persNr = persNr;
-        Professor.name = name;
-        Professor.age = age;
-        this.email = email;
     }
 }
