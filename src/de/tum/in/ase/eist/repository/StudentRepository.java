@@ -20,10 +20,11 @@ public class StudentRepository {
      */
     public Student getStudentByMatrNr(String matrNr) {
         try {
-            return this.repo.get(matrNr);
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("The student was not found.");
+            this.repo.get(matrNr);
+        } catch (Exception e) {
+            throw new NoSuchElementException();
         }
+        return this.repo.get(matrNr);
 
     }
 

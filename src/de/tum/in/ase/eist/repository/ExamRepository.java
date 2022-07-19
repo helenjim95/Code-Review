@@ -20,10 +20,11 @@ public class ExamRepository {
      */
     public Exam getExamById(Long examID) {
         try {
-            return this.repo.get(examID);
+            this.repo.get(examID);
         } catch (Exception e) {
-            throw new NoSuchElementException("The student was not found.");
+            throw new NoSuchElementException();
         }
+        return this.repo.get(examID);
     }
 
 
