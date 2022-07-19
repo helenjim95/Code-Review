@@ -3,6 +3,7 @@ package de.tum.in.ase.eist.repository;
 import de.tum.in.ase.eist.entities.Exam;
 
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 public class ExamRepository {
 
@@ -18,7 +19,11 @@ public class ExamRepository {
      * or null if this map contains no mapping for the key
      */
     public Exam getExamById(Long examID) {
-        return this.repo.get(examID);
+        try {
+            return this.repo.get(examID);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("The student was not found.");
+        }
     }
 
 

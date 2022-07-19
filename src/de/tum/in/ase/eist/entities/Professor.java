@@ -7,4 +7,6 @@ public class Professor extends Person {
         super(name, age, email);
         this.persNr = persNr;
     }
+
+    public String getpersNr() { return persNr;}
 }
