@@ -21,7 +21,7 @@ public class ExamManagementService {
         // 2.1 : throw NoSuchElementException in case the student was not found
         try {
             return studentRepository.getStudentByMatrNr(matrNr);
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             throw new NoSuchElementException("The student was not found");
         }
     }
@@ -42,7 +42,7 @@ public class ExamManagementService {
     public Exam getExamById(Long id) {
         try {
             return examRepository.getExamById(id);
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             throw new NoSuchElementException("The exam was not found");
         }
     }
