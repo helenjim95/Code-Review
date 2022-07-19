@@ -10,7 +10,7 @@ public class StudentRepository {
     private HashMap<String, Student> repo;
 
     public StudentRepository() {
-        this.repo = new HashMap<>();
+        this.repo = new HashMap<String, Student>();
     }
 
     /**
@@ -20,7 +20,6 @@ public class StudentRepository {
      */
     public Student getStudentByMatrNr(String matrNr) {
         return this.repo.get(matrNr);
-
     }
 
     public void addStudent(Student student) {
